@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Country(models.TextChoices):
+    
+
+class Brand(models.Model): ...
+
+
+class Mobile(models.Model): ...
