@@ -9,6 +9,8 @@ env.read_env(str(BASE_DIR / ".env"))
 
 LOCAL_APPS = [
     "accounts.apps.AccountsConfig",
+    "products.apps.ProductsConfig",
+    "common.apps.CommonConfig",
 ]
 
 THIRD_PARTY_APPS = []
