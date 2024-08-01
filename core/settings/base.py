@@ -11,8 +11,7 @@ LOCAL_APPS = [
     "accounts.apps.AccountsConfig",
 ]
 
-THIRD_PARTY_APPS = [
-]
+THIRD_PARTY_APPS = []
 
 INSTALLED_APPS = [
     "django.contrib.admin",
