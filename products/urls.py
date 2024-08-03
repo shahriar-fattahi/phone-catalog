@@ -1,6 +1,12 @@
 from django.urls import include, path
 
-from .views import AddBrandView, AddMobileView, KoreanBrandListView, SeachMobileView
+from .views import (
+    AddBrandView,
+    AddMobileView,
+    KoreanBrandListView,
+    SeachMobileView,
+    TheSameCountryMobileListView,
+)
 
 app_name = "products"
 
@@ -11,6 +17,9 @@ brand_urls = [
 mobile_urls = [
     path("add", AddMobileView.as_view(), name="add-mobile"),
     path("search/", SeachMobileView.as_view(), name="search-mobile"),
+    path(
+        "same", TheSameCountryMobileListView.as_view(), name="the-same-country-mobiles"
+    ),
 ]
 
 urlpatterns = [
