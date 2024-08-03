@@ -118,6 +118,7 @@ class COUNTRY(models.TextChoices):
     KZ = "KZ", "Kazakhstan"
     KE = "KE", "Kenya"
     KI = "KI", "Kiribati"
+    KR = "KR", "Korea"
     XK = "XK", "Kosovo"
     KW = "KW", "Kuwait"
     KG = "KG", "Kyrgyzstan"
