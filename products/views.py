@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.db.models import F
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView
@@ -121,3 +122,14 @@ class SeachMobileView(View):
             template_name="products/search_mobiles.html",
             context=context,
         )
+
+
+class TheSameCountryMobileListView(ListView):
+    template_name = "products/mobiles_list.html"
+    context_object_name = "mobiles"
+    model = Mobile
+
+    def get_queryset(self):
+        return self.model.objects.filter(
+            brand__country=F("manufacturer"),
+        ).select_related("brand")
