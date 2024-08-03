@@ -33,4 +33,4 @@ class Mobile(BaseModel):
     )
 
     def __str__(self) -> str:
-        self.model
+        return self.model
