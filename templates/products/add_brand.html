@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+Add Brand
+{% endblock title %}
+
+
+{% block body %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p class="alert alert-{{ msg.tags }}"> {{ msg }} </p>
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <form method="post" action="{% url "products:add-brand" %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
