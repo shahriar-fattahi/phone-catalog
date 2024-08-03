@@ -6,7 +6,7 @@ from django.views.generic import ListView
 from common.mixins import AdminRequiredMixin
 from common.models import COUNTRY
 
-from .forms import BrandForm, MobileForm
+from .forms import BrandForm, BrandSearchForm, MobileForm
 from .models import Brand, Mobile
 
 
@@ -101,3 +101,23 @@ class KoreanBrandListView(ListView):
 
     def get_queryset(self):
         return self.model.objects.filter(country=COUNTRY.KR)
+
+
+class SeachMobileView(View):
+    def get(self, request):
+        brand = request.GET.get("brand")
+        if brand is None:
+            mobiles = Mobile.objects.all().select_related("brand")
+        else:
+            mobiles = Mobile.objects.filter(
+                brand__name=brand,
+            ).select_related("brand")
+        context = {
+            "mobiles": mobiles,
+            "form": BrandSearchForm,
+        }
+        return render(
+            request=request,
+            template_name="products/search_mobiles.html",
+            context=context,
+        )

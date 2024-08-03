@@ -40,3 +40,7 @@ class MobileForm(forms.ModelForm):
     class Meta:
         model = Mobile
         fields = "__all__"
+
+
+class BrandSearchForm(forms.Form):
+    brand = forms.CharField(max_length=255, required=True)
