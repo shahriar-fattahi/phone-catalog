@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Screen Size</th>
+                    <th scope="col">Is available</th>
+                    <th scope="col">Manufacturer</th>
+                    <th scope="col">Brand's name</th>
+                    <th scope="col">Brand's country </th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for mobile in mobiles %}
+                        <tr>
+                            <th scope="row">{{mobile.id}}</th>
+                            <td>{{mobile.model}}</td>
+                            <td>{{mobile.price}}</td>
+                            <td>{{mobile.color}}</td>
+                            <td>{{mobile.size_screen}}</td>
+                            <td>{{mobile.is_available}}</td>
+                            <td>{{mobile.get_manufacturer_display}}</td>
+                            <td>{{mobile.brand.name}}</td>
+                            <td>{{mobile.brand.get_country_display}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
