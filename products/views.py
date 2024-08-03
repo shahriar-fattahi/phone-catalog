@@ -1,10 +1,13 @@
 from django.contrib import messages
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
 
 from common.mixins import AdminRequiredMixin
+from common.models import COUNTRY
 
 from .forms import BrandForm, MobileForm
+from .models import Brand, Mobile
 
 
 class AddBrandView(AdminRequiredMixin, View):
@@ -89,3 +92,12 @@ class AddMobileView(AdminRequiredMixin, View):
             template_name=self.template_name,
             context=context,
         )
+
+
+class KoreanBrandListView(ListView):
+    template_name = "products/brand_list.html"
+    context_object_name = "objects"
+    model = Brand
+
+    def get_queryset(self):
+        return self.model.objects.filter(country=COUNTRY.KR)
