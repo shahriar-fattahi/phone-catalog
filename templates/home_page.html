@@ -6,6 +6,18 @@ Phone Catalog
 
 
 {% block body %}
-Hello World!
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <p>1- Admins can login to the site. - <a href="{% url "accounts:login" %}">here</a></p>
+            <p>2- Each admin can add a new brand(you should login as an admin first!). - <a href="{% url "products:add-brand" %}">here</a></p>
+            <p>3- Each admin can add a new phone(you should login as an admin first!). - <a href="{% url "products:add-mobile" %}">here</a></p>
+            <p>4- All admins can access and view the following reports:</p>
+            <p>-	List of all Korean brands. - <a href="{% url "products:korean-brands" %}">here</a></p>
+            <p>-	List of all mobile phones from the specified brand. - <a href="{% url "products:search-mobile" %}">here</a></p>
+            <p>-	List of all mobile phones where the brand's country and the manufacturer's country are the same. - <a href="{% url "products:the-same-country-mobiles" %}">here</a></p>
+        </div>
+    </div>
+</div>
 {% endblock body %}
 
