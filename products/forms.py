@@ -16,12 +16,10 @@ class BrandForm(forms.ModelForm):
         fields = "__all__"
 
     def clean_slug(self):
-        print(self.cleaned_data)
         slug = self.cleaned_data.get("slug")
         if slug is None or slug == "":
             slug = slugify(self.cleaned_data["name"])
         if Brand.objects.filter(slug=slug).exists():
-            print("err")
             raise forms.ValidationError(
                 message=f"[{slug}] set as slug and brand with this slug is already exists"
             )

@@ -1,3 +1,5 @@
 Django==5.0.7 # https://github.com/django/django
 django-environ==0.11.2 # https://github.com/joke2k/django-environ
 django-lifecycle==1.2.4 # https://github.com/rsinger86/django-lifecycle
+Faker==26.1.0 # https://github.com/joke2k/faker
+factory_boy==3.3.0 # https://github.com/FactoryBoy/factory_boy
